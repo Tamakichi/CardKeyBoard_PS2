@@ -29,12 +29,11 @@ https://github.com/m5stack/M5-ProductExampleCodes/tree/master/Unit/CARDKB
 
 ![コネクタ](./image/02.png)  
 
-
 |端子・導線|  信号  |
 |:--:|:--:|
 |黒   |GND  |
 |赤   |5V or 3.3V  |
-|橙   |CLK/D+(A4)  |
+|黄   |CLK/D+(A4)  |
 |白   |DATA/D-(A5) |
 
 USBコネクタ（オス）を利用する場合は、上記導線を下記の端子に結線して下さい。  
@@ -103,5 +102,19 @@ Arduino IDE環境にて、ボード選択として、**Arduino Pro（3.3V 8MHz�
 USB端子（オス）、ジャンパーワイヤー（オス-オス）を使って、簡易ケーブルを実装した例です。
 ![ICSP](./image/10.jpg)
 
-、**豊四季Tiny BASIC for Arduino STM32 V0.87**の利用例  
+**豊四季Tiny BASIC for Arduino STM32 V0.87**の利用例  
 ![ICSP](./image/11.jpg)
+
+## IchigoJamでKBD1、KBD2に接続して利用する例
+
+IchigoJamで利用する場合、  
+ジャンパーワイヤー（オス - オス）を使って、端子に接続でも利用出来ます。  
+
+|IchigoJamの端子|  キーボードのケーブル  |
+|:--:|:--|
+|GND|黒：GND
+|VCC|赤：5V or 3.3V
+|KBD1|黄：CLK/D+
+|KBD2|白：DATA/D-
+
+![ICSP](./image/12.jpg)
