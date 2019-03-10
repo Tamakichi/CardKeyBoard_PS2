@@ -7,6 +7,7 @@
 //  Adafruit_NeoPixel 
 // 
 // 2019/03/10 PS/2イニシャル処理の修正（IchigoLatte対応、0x00は送信しない）
+// 2019/03/10 起動直後のNeoPixcel点滅を廃止
 //
 
 #include <Adafruit_NeoPixel.h>
@@ -371,6 +372,8 @@ void setup() {
   PORTD = 0xff;
 
   pixels.begin();
+
+/*
   for (int j = 0; j < 3; j++)   {
     for (int i = 0; i < 30; i++)     {
       pixels.setPixelColor(0, pixels.Color(i, i, i)); pixels.show();
@@ -380,24 +383,15 @@ void setup() {
       pixels.setPixelColor(0, pixels.Color(i, i, i)); pixels.show();
       delay(6);
     }
-
   }
-  pixels.setPixelColor(0, pixels.Color(0, 0, 0));
-  //Wire.begin(0x5f);
-  //Wire.onRequest(requestEvent);
-/*
-  while(keyboard.write(0xAA)!=0);  
-  while(keyboard.write(0x00)!=0);  
 */
+
   uint32_t tm;
   tm = millis();  
   while(keyboard.write(0xAA)!=0)  {
     if ( millis() > tm+1000)
         break;
   }
-
-  //Serial.println("Start");
-
 }
 
 unsigned char GetInput() {
