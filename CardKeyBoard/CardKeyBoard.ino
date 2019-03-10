@@ -6,6 +6,8 @@
 //  ps2dev https://playground.arduino.cc/uploads/ComponentLib/ps2dev.zip
 //  Adafruit_NeoPixel 
 // 
+// 2019/03/10 PS/2イニシャル処理の修正（IchigoLatte対応、0x00は送信しない）
+//
 
 #include <Adafruit_NeoPixel.h>
 #include <ps2dev.h>
@@ -383,9 +385,17 @@ void setup() {
   pixels.setPixelColor(0, pixels.Color(0, 0, 0));
   //Wire.begin(0x5f);
   //Wire.onRequest(requestEvent);
-
+/*
   while(keyboard.write(0xAA)!=0);  
   while(keyboard.write(0x00)!=0);  
+*/
+  uint32_t tm;
+  tm = millis();  
+  while(keyboard.write(0xAA)!=0)  {
+    if ( millis() > tm+1000)
+        break;
+  }
+
   //Serial.println("Start");
 
 }
