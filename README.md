@@ -77,7 +77,8 @@ Arduino IDEのライブラリマネージャーにて、"Adafruit NeoPixel"に�
 - ps2dev（Emulating a PS2 device）  
     - [PS2 mouse interface for Arduino](http://playground.arduino.cc/ComponentLib/Ps2mouse)から一番下の **Attach:ps2dev.zip** をクリックしてダウンロードします。  
     - 解凍して、各自のArduino環境の **libraries** の下に配置します。  
-    - **ps2dev.cpp**、**ps2dev.h** をエディタで開き`#include "WProgram.h"`を`#include "Arduino.h"`に修正し保存します。
+    - **ps2dev.cpp** をエディタで開き`#include "WProgram.h"`を`#include "Arduino.h"`に修正し保存します。
+    - **ps2dev.h** をエディタで開き`#include "WConstants.h"`をコメントアウト（`//#include "WConstants.h"`)し保存します。
 
 ## ファームウェアの書き込み
 本プロジェクトに添付の **CardKeyBoard.ino** をArduino IDEで開きます。  
