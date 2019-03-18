@@ -81,8 +81,20 @@ Arduino IDEのライブラリマネージャーにて、"Adafruit NeoPixel"に�
     - **ps2dev.h** をエディタで開き`#include "WConstants.h"`をコメントアウト（`//#include "WConstants.h"`)し保存します。
 
 ## ファームウェアの書き込み
+**Arduino IDE** にて添付のスケッチをコンパイルして書き込むか、  
+**bin**フォルダ内のコンパイル済みイメージファイル **CardKeyBoard.ino.hex**を  
+**avrdude**等のツールを使って書き込んで下さい。  
+プログラマは各自の使い慣れたものをお使い下さい。  
+
+<font color="red">(注意) ヒューズビットの変更は行わないで下さい。</font>    
+**ProgIsp**をお使いの場合は、<font color=red>デフォルトの**Program Fuse**の設定を無効にして下さい。</font>  
+
+### Arduino IDEを使った書き込み  
 本プロジェクトに添付の **CardKeyBoard.ino** をArduino IDEで開きます。  
 Arduino IDE環境にて、ボード選択として、**Arduino Pro（3.3V 8MHz）** を指定して書き込みます。  
+
+(ブートローダの書き込み操作（[ツール] - [ブートローダを書き込む]）は禁止）</font>
+ 
 ボードには、ブートローダは搭載していないため、ICSP端子からのプログラマ（ArduinoISP、USBasp、USBtinyISP等）による書き込みが必要です。  
 プログラマは各自の使い慣れたものをお使い下さい。  
 
@@ -102,11 +114,19 @@ Arduino IDE環境にて、ボード選択として、**Arduino Pro（3.3V 8MHz�
 
 ## USBコネクタ経由で接続するための簡易ケーブルの実装例  
 
-USB端子（オス）、ジャンパーワイヤー（オス-オス）を使って、簡易ケーブルを実装した例です。
+USB端子（オス）、ジャンパーワイヤー（オス-オス）を使って、簡易ケーブルを実装した例です。  
 ![ICSP](./image/10.jpg)
 
 **豊四季Tiny BASIC for Arduino STM32 V0.87**の利用例  
 ![ICSP](./image/11.jpg)
+
+秋月電子の「[ケーブル取付用ＵＳＢコネクタ（Ａタイプ　オス）](http://akizukidenshi.com/catalog/g/gC-07664/)」を使た例  
+(熱収縮チューブ＋結束バンドで根本を補強)  
+
+![ICSP](./image/14.jpg)  
+
+![ICSP](./image/15.jpg)  
+
 
 ## IchigoJamでKBD1、KBD2に接続して利用する例
 
